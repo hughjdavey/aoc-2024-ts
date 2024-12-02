@@ -1,0 +1,29 @@
+{
+  "name": "aoc-ts-starter",
+  "version": "1.0.0",
+  "description": "Starter template for solving Advent of Code in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "add-day": "esbuild src/utils/add-day.ts --bundle --platform=node --outdir=dist --log-level=error && node dist/add-day.js",
+    "start": "esbuild src/utils/runner.ts --bundle --platform=node --outdir=dist --log-level=error && node dist/runner.js",
+    "test": "jest test"
+  },
+  "keywords": [
+    "aoc",
+    "advent-of-code",
+    "template",
+    "typescript"
+  ],
+  "author": "hughjdavey",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@swc/core": "^1.9.3",
+    "@swc/jest": "^0.2.37",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.1",
+    "esbuild": "^0.24.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.7.2"
+  }
+}
