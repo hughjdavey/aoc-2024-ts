@@ -91,13 +91,13 @@ const runPart = (day: Day, partNumber: 1 | 2): { result: string; time: string } 
 
 const getReadableTime = (timeInNs: number): string => {
   if (timeInNs > 1_000_000_000) {
-    return `${(timeInNs / 1_000_000_000).toFixed(3)}s`
+    return `${(timeInNs / 1_000_000_000).toFixed(3)}s`;
   } else if (timeInNs > 1_000_000) {
-    return `${(timeInNs / 1_000_000).toFixed(3)}ms`
+    return `${(timeInNs / 1_000_000).toFixed(3)}ms`;
   } else if (timeInNs > 1_000) {
-    return `${(timeInNs / 1_000).toFixed(3)}µs`
+    return `${(timeInNs / 1_000).toFixed(3)}µs`;
   } else {
-    return `${timeInNs}ns`
+    return `${timeInNs}ns`;
   }
 };
 

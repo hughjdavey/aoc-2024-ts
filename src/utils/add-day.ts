@@ -9,11 +9,15 @@ const getDayNumber = (): string => {
   return dayNumber;
 };
 
-const getPath = (dayNumber: string, type: 'day' | 'input'): string => {
+const getPath = (dayNumber: string, type: 'day' | 'input', test: boolean): string => {
   const filePath =
-    type === 'day'
+    type === 'day' && !test
       ? path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}.ts`)
-      : path.resolve(__dirname, '..', 'inputs', `day${dayNumber}.txt`);
+      : type === 'day' && test
+        ? path.resolve(__dirname, '..', 'test', `day${dayNumber}.spec.ts`)
+        : type === 'input' && !test
+          ? path.resolve(__dirname, '..', 'inputs', `day${dayNumber}.txt`)
+          : path.resolve(__dirname, '..', 'test-inputs', `day${dayNumber}.txt`);
   if (fs.existsSync(filePath)) {
     throw new Error(`File already exists at ${filePath}`);
   }
@@ -34,12 +38,26 @@ export class Day${dayNumber} extends Day {
 }
 `;
 
+const getDayTestTemplate = (dayNumber: string): string =>
+  `import { Day${dayNumber} } from '../src/days/day${dayNumber}.ts';
+
+const day${dayNumber} = new Day${dayNumber}(${dayNumber});
+
+test('part one', () => {
+  expect(day${dayNumber}.partOne()).toEqual('part one');
+});
+
+test('part two', () => {
+  expect(day${dayNumber}.partTwo()).toEqual('part two');
+});
+`;
+
 try {
   const dayNumber = getDayNumber();
-  const dayPath = getPath(dayNumber, 'day');
-  const inputPath = getPath(dayNumber, 'input');
-  fs.writeFileSync(dayPath, getDayTemplate(dayNumber));
-  fs.writeFileSync(inputPath, '\n');
+  fs.writeFileSync(getPath(dayNumber, 'day', false), getDayTemplate(dayNumber));
+  fs.writeFileSync(getPath(dayNumber, 'day', true), getDayTestTemplate(dayNumber));
+  fs.writeFileSync(getPath(dayNumber, 'input', false), '\n');
+  fs.writeFileSync(getPath(dayNumber, 'input', true), '\n');
 } catch (error) {
   const message = error instanceof Error ? error.message : JSON.stringify(error);
   console.error('Error adding new day -', message);
