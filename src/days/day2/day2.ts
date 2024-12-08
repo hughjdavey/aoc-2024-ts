@@ -1,5 +1,5 @@
-import { Day } from './day.ts';
-import { count } from '../shared/utils.ts';
+import { Day } from '../day.ts';
+import { count } from '../../shared/utils.ts';
 
 export class Day2 extends Day {
   partOne(): unknown {

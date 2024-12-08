@@ -12,12 +12,12 @@ const getDayNumber = (): string => {
 const getPath = (dayNumber: string, type: 'day' | 'input', test: boolean): string => {
   const filePath =
     type === 'day' && !test
-      ? path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}.ts`)
+      ? path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}`, `day${dayNumber}.ts`)
       : type === 'day' && test
-        ? path.resolve(__dirname, '..', 'test', `day${dayNumber}.spec.ts`)
+        ? path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}`, `day${dayNumber}.spec.ts`)
         : type === 'input' && !test
-          ? path.resolve(__dirname, '..', 'inputs', `day${dayNumber}.txt`)
-          : path.resolve(__dirname, '..', 'test-inputs', `day${dayNumber}.txt`);
+          ? path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}`, 'input.txt')
+          : path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}`, 'input-test.txt');
   if (fs.existsSync(filePath)) {
     throw new Error(`File already exists at ${filePath}`);
   }
@@ -25,7 +25,7 @@ const getPath = (dayNumber: string, type: 'day' | 'input', test: boolean): strin
 };
 
 const getDayTemplate = (dayNumber: string): string =>
-  `import { Day } from './day';
+  `import { Day } from '../day.ts';
 
 export class Day${dayNumber} extends Day {
   partOne(): unknown {
@@ -39,7 +39,7 @@ export class Day${dayNumber} extends Day {
 `;
 
 const getDayTestTemplate = (dayNumber: string): string =>
-  `import { Day${dayNumber} } from '../src/days/day${dayNumber}.ts';
+  `import { Day${dayNumber} } from './day${dayNumber}.ts';
 
 const day${dayNumber} = new Day${dayNumber}(${dayNumber});
 
@@ -54,10 +54,12 @@ test('part two', () => {
 
 try {
   const dayNumber = getDayNumber();
-  fs.writeFileSync(getPath(dayNumber, 'day', false), getDayTemplate(dayNumber));
-  fs.writeFileSync(getPath(dayNumber, 'day', true), getDayTestTemplate(dayNumber));
-  fs.writeFileSync(getPath(dayNumber, 'input', false), '\n');
-  fs.writeFileSync(getPath(dayNumber, 'input', true), '\n');
+  const dayDirectory = path.resolve(__dirname, '..', 'src', 'days', `day${dayNumber}`);
+  fs.mkdirSync(dayDirectory)
+  fs.writeFileSync(`${dayDirectory}/day${dayNumber}.ts`, getDayTemplate(dayNumber));
+  fs.writeFileSync(`${dayDirectory}/day${dayNumber}.spec.ts`, getDayTestTemplate(dayNumber));
+  fs.writeFileSync(`${dayDirectory}/input.txt`, '\n');
+  fs.writeFileSync(`${dayDirectory}/input-test.txt`, '\n');
 } catch (error) {
   const message = error instanceof Error ? error.message : JSON.stringify(error);
   console.error('Error adding new day -', message);

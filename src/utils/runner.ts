@@ -13,14 +13,14 @@ import { Day } from '../days/day.ts';
  */
 export const getDays = async (): Promise<Record<string, () => Promise<void | Day>>> => {
   return {
-    day1: async () => await import('../days/day1.ts').then(d => new d['Day1'](1)).catch(),
-    day2: async () => await import('../days/day2.ts').then(d => new d['Day2'](2)).catch(noop),
-    day3: async () => await import('../days/day3.ts').then(d => new d['Day3'](3)).catch(noop),
-    day4: async () => await import('../days/day4.ts').then(d => new d['Day4'](4)).catch(noop),
-    day5: async () => await import('../days/day5.ts').then(d => new d['Day5'](5)).catch(noop),
-    day6: async () => await import('../days/day6.ts').then(d => new d['Day6'](6)).catch(noop),
-    day7: async () => await import('../days/day7.ts').then(d => new d['Day7'](7)).catch(noop),
-    day8: async () => await import('../days/day8.ts').then(d => new d['Day8'](8)).catch(noop),
+    day1: async () => await import('../days/day1/day1.ts').then(d => new d['Day1'](1)).catch(),
+    day2: async () => await import('../days/day2/day2.ts').then(d => new d['Day2'](2)).catch(noop),
+    day3: async () => await import('../days/day3/day3.ts').then(d => new d['Day3'](3)).catch(noop),
+    day4: async () => await import('../days/day4/day4.ts').then(d => new d['Day4'](4)).catch(noop),
+    day5: async () => await import('../days/day5/day5.ts').then(d => new d['Day5'](5)).catch(noop),
+    day6: async () => await import('../days/day6/day6.ts').then(d => new d['Day6'](6)).catch(noop),
+    day7: async () => await import('../days/day7/day7.ts').then(d => new d['Day7'](7)).catch(noop),
+    day8: async () => await import('../days/day8/day8.ts').then(d => new d['Day8'](8)).catch(noop),
     day9: async () => await import('../days/day9.ts').then(d => new d['Day9'](9)).catch(noop),
     day10: async () => await import('../days/day10.ts').then(d => new d['Day10'](10)).catch(noop),
     day11: async () => await import('../days/day11.ts').then(d => new d['Day11'](11)).catch(noop),

@@ -1,4 +1,4 @@
-import { Day } from './day';
+import { Day } from '../day.ts';
 
 export class Day5 extends Day {
   rules = this.inputList.slice(0, this.inputList.indexOf('')).map(l => l.split('|').map(n => Number.parseInt(n)));

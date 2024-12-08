@@ -1,7 +1,7 @@
-import { Day } from './day';
-import { Coord, DIRECTIONS } from '../shared/coords.ts';
-import { count, range } from '../shared/utils.ts';
-import { GridSquare } from '../shared/grid.ts';
+import { Day } from '../day.ts';
+import { Coord, DIRECTIONS } from '../../shared/coords.ts';
+import { count, range } from '../../shared/utils.ts';
+import { GridSquare } from '../../shared/grid.ts';
 
 export class Day4 extends Day {
   private grid: GridSquare[] = range(0, this.inputList.length - 1).flatMap(y =>

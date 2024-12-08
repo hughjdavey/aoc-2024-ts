@@ -1,7 +1,7 @@
-import { Day } from './day';
-import { Grid } from '../shared/grid.ts';
-import { Coord } from '../shared/coords.ts';
-import { allPairs } from '../shared/utils.ts';
+import { Day } from '../day.ts';
+import { Grid } from '../../shared/grid.ts';
+import { Coord } from '../../shared/coords.ts';
+import { allPairs } from '../../shared/utils.ts';
 
 export class Day8 extends Day {
   partOne(): unknown {

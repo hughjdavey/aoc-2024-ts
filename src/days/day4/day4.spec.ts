@@ -1,5 +1,5 @@
-import { Day4 } from '../src/days/day4.ts';
-import { Coord } from '../src/shared/coords.ts';
+import { Day4 } from './day4.ts';
+import { Coord } from '../../shared/coords.ts';
 
 const day4 = new Day4(4);
 

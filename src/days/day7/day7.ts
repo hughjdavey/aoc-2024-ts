@@ -1,4 +1,4 @@
-import { Day } from './day';
+import { Day } from '../day.ts';
 
 type CalibrationLine = { result: number; operands: number[] };
 

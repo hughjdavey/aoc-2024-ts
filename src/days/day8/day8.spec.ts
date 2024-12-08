@@ -1,6 +1,6 @@
-import { Day8 } from '../src/days/day8.ts';
-import { Grid } from '../src/shared/grid.ts';
-import { Coord } from '../src/shared/coords.ts';
+import { Day8 } from './day8.ts';
+import { Grid } from '../../shared/grid.ts';
+import { Coord } from '../../shared/coords.ts';
 
 const day8 = new Day8(8);
 

@@ -1,4 +1,4 @@
-import { Day1 } from '../src/days/day1.ts';
+import { Day1 } from './day1.ts';
 
 const day1 = new Day1(1);
 

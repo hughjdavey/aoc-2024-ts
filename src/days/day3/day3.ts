@@ -1,6 +1,6 @@
-import { Day } from './day';
-import { Pair } from '../shared/types.ts';
-import { ensureDefined } from '../shared/utils.ts';
+import { Day } from '../day.ts';
+import { Pair } from '../../shared/types.ts';
+import { ensureDefined } from '../../shared/utils.ts';
 
 type Command = Pair<number> | boolean;
 

@@ -1,6 +1,6 @@
-import { Day } from './day';
-import { Pair } from '../shared/types.ts';
-import { count } from '../shared/utils.ts';
+import { Day } from '../day.ts';
+import { Pair } from '../../shared/types.ts';
+import { count } from '../../shared/utils.ts';
 
 export class Day1 extends Day {
   private lists = this.extractLists();

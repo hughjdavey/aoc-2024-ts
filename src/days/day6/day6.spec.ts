@@ -1,7 +1,7 @@
-import { Day6, Guard } from '../src/days/day6.ts';
-import { Coord } from '../src/shared/coords.ts';
-import { Grid } from '../src/shared/grid.ts';
-import { range } from '../src/shared/utils.ts';
+import { Day6, Guard } from './day6.ts';
+import { Coord } from '../../shared/coords.ts';
+import { Grid } from '../../shared/grid.ts';
+import { range } from '../../shared/utils.ts';
 
 const NORMAL_MAP = [
   '....#.....',

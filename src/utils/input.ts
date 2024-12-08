@@ -4,7 +4,7 @@ import path from 'path';
 export const getInputAsString = (day: number): string => {
   const useTestInput = process.env.NODE_ENV === 'test' && process.env.USE_REAL_INPUTS !== 'true';
   return fs
-    .readFileSync(path.resolve(`${process.cwd()}/${useTestInput ? 'test-' : ''}inputs`, `day${day}.txt`))
+    .readFileSync(path.resolve(`${process.cwd()}/src/days/day${day}/input${useTestInput ? '-test' : ''}.txt`))
     .toString('utf-8');
 };
 

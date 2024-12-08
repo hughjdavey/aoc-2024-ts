@@ -1,7 +1,7 @@
-import { Day } from './day';
-import { Coord } from '../shared/coords.ts';
-import { Grid } from '../shared/grid.ts';
-import { range } from '../shared/utils.ts';
+import { Day } from '../day.ts';
+import { Coord } from '../../shared/coords.ts';
+import { Grid } from '../../shared/grid.ts';
+import { range } from '../../shared/utils.ts';
 
 export class Day6 extends Day {
   private map = new Grid(this.inputList);
