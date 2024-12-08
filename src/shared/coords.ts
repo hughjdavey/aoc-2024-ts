@@ -30,6 +30,10 @@ export class Coord {
       .filter(coord => includeDiagonals || coord.x == this.x || coord.y == this.y);
   }
 
+  diff(from: Coord = new Coord(0, 0)): Coord {
+    return new Coord(this.x - from.x, this.y - from.y);
+  }
+
   plusX(delta: number): Coord {
     return new Coord(this.x + delta, this.y);
   }

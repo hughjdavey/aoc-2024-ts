@@ -30,4 +30,8 @@ export class Grid {
     }
     return match.coord;
   }
+
+  getCoords(predicate: (char: string) => boolean): GridSquare[] {
+    return this.grid.filter(square => predicate(square.char));
+  }
 }

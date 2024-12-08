@@ -19,7 +19,7 @@
   "devDependencies": {
     "@swc/core": "^1.9.3",
     "@swc/jest": "^0.2.37",
-    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/node21": "^21.0.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.1",
     "esbuild": "^0.24.0",
