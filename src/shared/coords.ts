@@ -29,4 +29,24 @@ export class Coord {
       .filter(coord => coord !== this)
       .filter(coord => includeDiagonals || coord.x == this.x || coord.y == this.y);
   }
+
+  plusX(delta: number): Coord {
+    return new Coord(this.x + delta, this.y);
+  }
+
+  minusX(delta: number): Coord {
+    return new Coord(this.x - delta, this.y);
+  }
+
+  plusY(delta: number): Coord {
+    return new Coord(this.x, this.y + delta);
+  }
+
+  minusY(delta: number): Coord {
+    return new Coord(this.x, this.y - delta);
+  }
+
+  toString(): string {
+    return `(${this.x}, ${this.y})`;
+  }
 }

@@ -9,7 +9,5 @@ export const getInputAsString = (day: number): string => {
 };
 
 export const getInputAsList = (day: number): string[] => {
-  return getInputAsString(day)
-    .split(`\n`)
-    .filter(line => line.length > 0);
+  return getInputAsString(day).trimEnd().split(`\n`);
 };
